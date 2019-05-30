@@ -1,2 +1,9 @@
 {
+  "screenshotsFolder": "cypress/output/screenshots",
+  "videosFolder": "cypress/output/videos",
+
+  "viewportWidth": 1440,
+  "viewportHeight": 900,
+
+  "ignoreTestFiles": "*.js"
 }
