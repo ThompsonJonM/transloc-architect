@@ -1,4 +1,9 @@
 {
+  "reporter": "mocha-multi-reporters",
+  "reporterOptions": {
+    "configFile": "reporter.config.json"
+  },
+
   "screenshotsFolder": "cypress/output/screenshots",
   "videosFolder": "cypress/output/videos",
 
