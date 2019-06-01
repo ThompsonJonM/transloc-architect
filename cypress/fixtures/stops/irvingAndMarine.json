@@ -1,0 +1,12 @@
+{
+	"code": "MARINE",
+	"description": "Irving Park and Marine Drive bus stop serving routes 80, 135, and 148.",
+	"name": "Irving Park and Marine Drive",
+	"type": "stop",
+	"url": "none",
+	"wheelchair_boarding": "yes",
+	"position": {
+		"latitude": 41.9545716820409,
+		"longitude": -87.6455405856266
+	}
+}

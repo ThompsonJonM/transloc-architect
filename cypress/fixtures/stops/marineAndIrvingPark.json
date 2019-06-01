@@ -1,0 +1,12 @@
+{
+	"code": "IRVING",
+	"description": "Marine Drive and Irving Park bus stop serving route 146.",
+	"name": "Marine Drive and Irving Park",
+	"type": "stop",
+	"url": "none",
+	"wheelchair_boarding": "no",
+	"position": {
+		"latitude": 41.9542039465751,
+		"longitude": -87.64518817482
+	}
+}

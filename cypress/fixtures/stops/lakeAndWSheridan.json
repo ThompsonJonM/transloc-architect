@@ -1,0 +1,12 @@
+{
+	"code": "W_SHERIDAN",
+	"description": "Lake Shore Drive and W. Sheridan bus stop serving routes 80, 135, and 146.",
+	"name": "Lake Shore Drive and W. Sheridan",
+	"type": "stop",
+	"url": "none",
+	"wheelchair_boarding": "yes",
+	"position": {
+		"latitude": 41.9531970202157,
+		"longitude": -87.6450392603874
+	}
+}
