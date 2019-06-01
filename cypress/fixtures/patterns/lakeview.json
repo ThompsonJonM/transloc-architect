@@ -1,0 +1,24 @@
+{
+	"geometry": "{fa_Gla~uOE_E?WAaCAuCAcA?U?U?MAsACqDFAh@IRCVEJAJALAHANAl@Ef@EXAh@CjBBd@?hAbHbApGrA`JLAM@gB?{DB",
+	"headsign": "80 - IRVING PARK",
+	"items": [{
+			"stop_id": "251445",
+			"timepoint": true
+		},
+		{
+			"stop_id": "251444",
+			"timepoint": true
+		},
+    {
+      "stop_id": "251447",
+      "timepoint": true
+    },
+    {
+      "stop_id": "251448",
+      "timepoint": true
+    }],
+	"name": "Irving Park 80 Bus",
+	"opposite_direction": false,
+	"route_id": "9505",
+	"waypoints": [0, 11, 25, 29, 32]
+}
