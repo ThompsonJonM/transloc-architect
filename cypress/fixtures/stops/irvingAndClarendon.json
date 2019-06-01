@@ -1,0 +1,12 @@
+{
+	"code": "CLARENDON",
+	"description": "Irving Park and Clarendon bus stop serving routes 80, 135, and 148.",
+	"name": "Irving Park and Clarendon",
+	"type": "stop",
+	"url": "none",
+	"wheelchair_boarding": "no",
+	"position": {
+		"latitude": 41.9545410081162,
+		"longitude": -87.6492702853545
+	}
+}
