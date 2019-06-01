@@ -44,7 +44,7 @@
     - Verify patterns cannot be created until routes have been
     - Verify patterns can be created for an existing route
 
-##### Journeys
+##### Trips
 - Requires a route, pattern, and calendar to enable journeys feature
 
 ---
@@ -53,16 +53,13 @@
 
 ##### Patterns
 Scenario: Create a New Pattern
-- Given we are viewing a specific feed
+- Given we are viewing the 'Patterns' tab for a specific feed
  - And we have existing routes
     - Use cy.request to create routes for testing
-- When we select 'Patterns'
- - And select 'New'
+- When we select the 'New' button
 - Then we should be able to successfully create a pattern
 
-OR
-
-Scenario Outline: Patterns Require Existing Routes
+Scenario Outline: Pattern Creation Requires Existing Routes
 - Given we are viewing a specific feed
   - And we '<do_or_do_not>' have existing routes
     - Check for routes prior to action statements
@@ -71,3 +68,32 @@ Scenario Outline: Patterns Require Existing Routes
 - When we select 'Patterns'
 - Then we '<should_or_should_not>' be able to create a new pattern
   - Use cy.request to delete any added routes for teardown
+- Examples: 'do', 'do not', 'should', 'should not'
+
+##### Trips
+Scenario Outline: Create a New Trip
+- Given we are viewing the 'Trips' tab for a specific feed
+  - And we have existing routes, patterns, and calendars
+- When we select to '<create_or_delete>' a trip
+- Then our trip should be successfully '<created_or_deleted>'
+- Examples: 'create', 'delete', 'created', 'deleted'
+
+Scenario Outline: Trip Creation Requires Existing Routes, Patterns, and Calendars
+- Given we are viewing a specific feed
+  - And we '<do_or_do_not>' have existing routes, patterns, and calendars
+- When we select 'Trips'
+- Then we '<should_or_should_not>' be able to create a new trip
+- Examples: 'do', 'do not', 'should', 'should not'
+
+##### Calendars
+Scenario: Calendars Indicate the Number of Trips they are Used By
+- Given we are viewing the 'Trips' tab for a specific feed
+- When we create a trip using an existing calendar
+  - And navigate to the 'Calendars' tab
+- Then the calendar should indicate trip usage
+
+---
+
+### To Do List
+- Add reporters
+- Add Docker support
