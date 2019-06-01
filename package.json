@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx cypress run --browser chrome",
+    "test-docker": "./run.sh",
     "test-headless": "npx cypress run",
     "test-ui": "npx cypress open"
   },
