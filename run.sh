@@ -9,7 +9,7 @@ function run_architect_tests() {
   docker pull cypress/browsers:latest
 
   # Build a new Docker image, then stop/remove previous containers if remove failed after run
-  docker build -t transloc-architect .
+  docker image build -t transloc-architect .
   docker stop transloc-architect-tester || true && docker rm transloc-architect-tester || true
 
   # Run the newly created Docker image
