@@ -1,0 +1,12 @@
+{
+	"code": "PINE",
+	"description": "Irving Park and Pine Grove bus stop serving routes 80, 135, and 148.",
+	"name": "Irving Park and Pine Grove Avenue",
+	"type": "stop",
+	"url": "none",
+	"wheelchair_boarding": "yes",
+	"position": {
+		"latitude": 41.9545826936428,
+		"longitude": -87.6475017884344
+	}
+}
