@@ -7,7 +7,10 @@
     "test": "npx cypress run --browser chrome",
     "test-docker": "./run.sh",
     "test-headless": "npx cypress run",
-    "test-ui": "npx cypress open"
+    "test-ui": "npx cypress open",
+    "test-dev": "npm run test -- --env environment=dev",
+    "test-qa": "npm run test -- --env environment=qa",
+    "test-val": "npm run test -- --env environment=val"
   },
   "repository": {
     "type": "git",
@@ -23,11 +26,16 @@
     "@testing-library/cypress": "^4.0.1",
     "cypress": "^3.3.1",
     "cypress-cucumber-preprocessor": "^1.11.2",
+    "fs-extra": "^8.0.1",
     "fsevents": "^2.0.7",
-    "mocha": "^6.1.4",
+    "mocha": "^5.2.0",
     "mocha-junit-reporter": "^1.22.0",
     "mocha-multi-reporters": "^1.1.7",
-    "mochawesome": "^3.1.2"
+    "mochawesome": "^3.1.1",
+    "path": "^0.12.7"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  }
 }
