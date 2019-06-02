@@ -95,5 +95,4 @@ Scenario: Calendars Indicate the Number of Trips they are Used By
 ---
 
 ### To Do List
-- Add reporters
-- Add Docker support
+- Take scenarios above and build tests

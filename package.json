@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx cypress run --browser chrome",
+    "test-docker": "./run.sh",
     "test-headless": "npx cypress run",
     "test-ui": "npx cypress open"
   },
@@ -12,18 +13,21 @@
     "type": "git",
     "url": "git+https://github.com/ThompsonJonM/transloc-architect.git"
   },
-  "author": "Jonathan Thompson",
+  "author": "Jonathan M. Thompson <thompson.jonm@gmail.com> (http://jmarshthompson.com)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ThompsonJonM/transloc-architect/issues"
   },
   "homepage": "https://github.com/ThompsonJonM/transloc-architect#readme",
   "dependencies": {
+    "@testing-library/cypress": "^4.0.1",
     "cypress": "^3.3.1",
     "cypress-cucumber-preprocessor": "^1.11.2",
-    "cypress-file-upload": "^3.1.2",
-    "cypress-testing-library": "^3.0.1",
-    "fsevents": "^2.0.7"
+    "fsevents": "^2.0.7",
+    "mocha": "^6.1.4",
+    "mocha-junit-reporter": "^1.22.0",
+    "mocha-multi-reporters": "^1.1.7",
+    "mochawesome": "^3.1.2"
   },
   "devDependencies": {}
 }
