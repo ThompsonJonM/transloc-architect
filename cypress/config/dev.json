@@ -1,0 +1,10 @@
+{
+  "env": {
+    "loginDomain": "https://login.stage.transloc.com/login/?next=https://architect.stage.transloc.com/",
+    "apiDomain": "https://api.stage.transloc.com/v1/architect/qainterviewthree/",
+    "architectDomain": "https://architect.stage.transloc.com/qainterviewthree/service-periods/",
+
+    "username": "qa_user_3",
+    "password": "1KyvQwXydqf73F^Y"
+  }
+}
