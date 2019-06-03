@@ -33,6 +33,7 @@ export const MAIN = {
 };
 
 export const NAVIGATION = {
+  BREADCRUMB_PREVIOUS_SELECTOR: '[data-id=breadcrumb_prev]',
   FEED_LINK_SELECTOR: 'a'
 }
 
