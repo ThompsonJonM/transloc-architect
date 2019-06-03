@@ -68,6 +68,6 @@ Then('the calendar should indicate trip usage', () => {
         .contains('trip')
         .then(($usageAfter) => {
           expect($usageBefore).to.not.eq($usageAfter.text())
-        })
-    })
+        });
+    });
 })

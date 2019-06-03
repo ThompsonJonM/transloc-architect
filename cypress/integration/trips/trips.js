@@ -29,7 +29,7 @@ And('we have existing routes, patterns, and calendars', () => {
     cy.get($selector)
       .children()
       .should('have.length', 1)
-  })
+  });
 });
 
 When('we create a new trip', () => {
@@ -42,7 +42,7 @@ Then('our trip should be successfully created', () => {
 
   cy.get('div')
     .contains('Midnight Line')
-    .should('exist')
+    .should('exist');
 });
 
 /**
