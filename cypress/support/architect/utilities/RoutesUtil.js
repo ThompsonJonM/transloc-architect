@@ -11,7 +11,7 @@ export default class RoutesUtil {
   *
   * @param routeFileName - The filename of the route fixture we are loading
   */
-  static createRouteWithAPI(routeFileName) {
+  static createRouteWithApi(routeFileName) {
     cy.request({
       "method": "GET",
       "url": CONSTANTS.API_URL + 'feeds',

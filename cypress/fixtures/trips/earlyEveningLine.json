@@ -1,0 +1,21 @@
+{
+  "bikes_allowed": "no",
+  "frequencies": [{
+    "start": 57600,
+    "end": 79200,
+    "headway": 1200,
+    "exact_times": true
+  }],
+  "name": "Early Evening Line",
+  "times": [{
+    "arrival": 57600,
+    "departure": 58500
+  }, {
+    "arrival": 59400,
+    "departure": 60300
+  }, {
+    "arrival": 60600,
+    "departure": 60900
+  }],
+  "wheelchair_accessible": "no"
+}
