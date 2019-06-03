@@ -6,7 +6,7 @@ import {
 } from 'cypress-cucumber-preprocessor/steps';
 import * as CONSTANTS from '../../support/architect/constants';
 import LoginUtil from '../../support/architect/utilities/LoginUtil';
-import CalendarUtil from '../../support/architect/utilities/CalendarUtil'
+import CalendarsUtil from '../../support/architect/utilities/CalendarUtil'
 
 /**
  * Scenario: Calendars Indicate the Number of Trips they are Used By
@@ -68,5 +68,5 @@ And('navigate to the "Calendars" tab', () => {
 });
 
 Then('the calendar should indicate trip usage', () => {
-  CalendarUtil.queryCalendarWithAPIAndCheckUsage();
+  CalendarsUtil.queryCalendarWithApiAndCheckUsage();
 })

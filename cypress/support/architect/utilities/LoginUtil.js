@@ -33,7 +33,7 @@ export default class LoginUtil {
    * @param username - The username to login with
    * @param password - The password for the username
    */
-  static loginAsArchitectUserWithAPI(username, password) {
+  static loginAsArchitectUserWithApi(username, password) {
     cy.request('POST', CONSTANTS.LOGIN_URL, {
       username: username,
       password: password

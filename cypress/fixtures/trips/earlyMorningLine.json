@@ -1,0 +1,21 @@
+{
+  "bikes_allowed": "yes",
+  "frequencies": [{
+    "start": 7200,
+    "end": 50400,
+    "headway": 1800,
+    "exact_times": true
+  }],
+  "name": "Early Morning Line",
+  "times": [{
+    "arrival": 11700,
+    "departure": 12000
+  }, {
+    "arrival": 12300,
+    "departure": 12900
+  }, {
+    "arrival": 13500,
+    "departure": 14100
+  }],
+  "wheelchair_accessible": "no"
+}
