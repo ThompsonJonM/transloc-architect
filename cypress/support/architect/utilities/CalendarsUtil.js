@@ -3,7 +3,7 @@ import * as CONSTANTS from '../constants'
 /**
  * Class for helper functions related to Calendars
  */
-export default class CalendarUtil {
+export default class CalendarsUtil {
 
   /**
    * A calendar creation function which uses the API
@@ -11,7 +11,7 @@ export default class CalendarUtil {
    *
    * @param calendarFileName - The filename of the calendar fixture we are loading
    */
-  static createCalendarWithAPI(calendarFileName) {
+  static createCalendarWithApi(calendarFileName) {
     cy.request({
       "method": "GET",
       "url": CONSTANTS.API_URL + 'feeds',
@@ -39,7 +39,7 @@ export default class CalendarUtil {
     });
   }
 
-  static queryCalendarWithAPIAndCheckUsage() {
+  static queryCalendarWithApiAndCheckUsage() {
     cy.request({
       "method": "GET",
       "url": CONSTANTS.API_URL + 'feeds',

@@ -9,7 +9,7 @@ export default class PatternsUtil {
    * A pattern creation function which uses the API
    * to increase testing speed
    */
-  static createPatternWithAPI() {
+  static createPatternWithApi() {
     cy.request({
       "method": "GET",
       "url": CONSTANTS.API_URL + 'feeds',
