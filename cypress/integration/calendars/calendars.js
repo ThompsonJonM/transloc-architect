@@ -5,16 +5,17 @@ import {
   Then
 } from 'cypress-cucumber-preprocessor/steps';
 import * as CONSTANTS from '../../support/architect/constants';
-import LoginUtil from '../../support/architect/utilities/LoginUtil';
 import CalendarsUtil from '../../support/architect/utilities/CalendarsUtil';
 import TripsUtil from '../../support/architect/utilities/TripsUtil';
-import FeedsUtil from '../../support/architect/utilities/FeedsUtil';
 
+/**
+* Functions which assist in setting up the environment
+* for calendars testing
+*
+* Specifically visits the calendars page, then aliases
+* the number of trips recorded before tests run for comparison
+*/
 before(() => {
-  LoginUtil.loginAsArchitectUser(CONSTANTS.ARCHITECT_USER, CONSTANTS.ARCHITECT_PASSWORD);
-
-  FeedsUtil.selectFeedWithApi(1);
-
   cy.get(CONSTANTS.FEED.CALENDARS_SELECTOR)
     .click();
 
@@ -53,6 +54,11 @@ And('navigate to the "Calendars" tab', () => {
 });
 
 Then('the calendar should indicate trip usage', () => {
+
+  /**
+  * Get the alias from the before step, then get the calendar and its current
+  * trip usage. Once done, compare the alias with current trip usage
+  */
   cy.get('@usageBefore')
     .then(($usageBefore) => {
       cy.log($usageBefore);
