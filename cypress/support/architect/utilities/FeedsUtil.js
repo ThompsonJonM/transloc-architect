@@ -6,6 +6,27 @@ import * as CONSTANTS from '../constants'
 export default class FeedsUtil {
 
   /**
+  * A feed creation function which uses the API
+  * to increase testing speed
+  *
+  * @param feedFileName - The filename of the fixture we are loading
+  */
+  static createFeedWithApi(feedFileName) {
+    cy.fixture('/feeds/' + feedFileName)
+      .then((feed) => {
+        cy.request({
+          "method": "POST",
+          "url": CONSTANTS.API_URL + 'feeds',
+          "headers": {
+            "Authorization": CONSTANTS.API_TOKEN,
+            "Content-Type": "application/json"
+          },
+          "body": feed
+        });
+      });
+  }
+
+  /**
   * A feed deletion function which uses the API
   * to increase testing speed
   */
@@ -27,7 +48,7 @@ export default class FeedsUtil {
           "Authorization": CONSTANTS.API_TOKEN,
           "Content-Type": "application/json"
         }
-      })
-    })
+      });
+    });
   }
 }
