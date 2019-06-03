@@ -1,0 +1,17 @@
+{
+  "end_date": "2019-06-30",
+  "gtfs_agency_email": "thompson.jonm@gmail.com",
+  "gtfs_agency_fare_url": "http://jmarshthompson.com",
+  "gtfs_agency_language": "en-us",
+  "gtfs_agency_name": "Thompson GTFS",
+  "gtfs_agency_phone": "5852595639",
+  "gtfs_agency_timezone": "Eastern",
+  "gtfs_agency_url": "http://jmarshthompson.com",
+  "language": "en-us",
+  "metadata": {},
+  "name": "Automation Testing Feed",
+  "publisher_name": "Jonathan Thompson",
+  "publisher_url": "http://jmarshthompson.com",
+  "start_date": "2019-06-01",
+  "version": "1.0"
+}
