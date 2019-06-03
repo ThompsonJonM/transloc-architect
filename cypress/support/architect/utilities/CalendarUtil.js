@@ -38,4 +38,33 @@ export default class CalendarUtil {
         });
     });
   }
+
+  static queryCalendarWithAPIAndCheckUsage() {
+    cy.request({
+      "method": "GET",
+      "url": CONSTANTS.API_URL + 'feeds',
+      "headers": {
+        "Authorization": CONSTANTS.API_TOKEN,
+        "Content-Type": "application/json"
+      }
+    }).then((response) => {
+      cy.log(response)
+
+      const feed = response.body[1].feed_id;
+
+      cy.request({
+        "method": 'GET',
+        "url": CONSTANTS.API_URL + 'feeds/' + feed + '/calendars',
+        "headers": {
+          "Authorization": CONSTANTS.API_TOKEN,
+          "Content-Type": "application/json"
+        }
+      }).then((calendarResponse) => {
+        const calendar = calendarResponse.body[0].calendar_id;
+
+        cy.get('[data-id=calendar-' + calendar + ']')
+          .should('not.eq', '0 trips')
+      });
+    });
+  }
 }
