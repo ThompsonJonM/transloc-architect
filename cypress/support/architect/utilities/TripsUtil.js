@@ -6,10 +6,43 @@ import * as CONSTANTS from '../constants'
 export default class TripsUtil {
 
   /**
-   * A trip deletion function which uses the API
+  * A trip creation function which takes in parameters
+  * to create a new trip
+  *
+  * @param tripName - The name of the trip
+  * @param bikesAllowed - Whether bikes are allowed on the trip
+  * @param wheelchairsAllowed - Whether wheelchairs are allowed on the trip
+  */
+  static createTrip(tripName, bikesAllowed, wheelchairsAllowed) {
+    cy.get(CONSTANTS.TRIPS.NEW_TRIP_SELECTOR)
+      .click();
+
+    cy.get(CONSTANTS.TRIPS.CREATE_FORM_SELECTORS.TRIP_NAME_SELECTOR)
+      .type(tripName)
+
+    cy.get(CONSTANTS.TRIPS.CREATE_FORM_SELECTORS.BIKES_DROPDOWN_SELECTOR)
+      .select(bikesAllowed);
+
+    cy.get(CONSTANTS.TRIPS.CREATE_FORM_SELECTORS.WHEELCHAIR_DROPDOWN_SELECTOR)
+      .select(wheelchairsAllowed);
+
+    cy.get(CONSTANTS.TRIPS.CREATE_FORM_SELECTORS.STOP_TIME_SELECTOR)
+      .each((selectors) => {
+        cy.get(selectors)
+          .type('0200')
+      });
+
+    cy.get(CONSTANTS.TRIPS.CREATE_FORM_SELECTORS.SAVE_BUTTON_SELECTOR)
+      .click();
+  }
+
+  /**
+   * A trips creation function which uses the API
    * to increase testing speed
+   *
+   * @param tripName - The filename of the trips fixture we are loading
    */
-  static deleteTripWithAPI() {
+  static createTripWithApi(tripName) {
     cy.request({
       "method": "GET",
       "url": CONSTANTS.API_URL + 'feeds',
@@ -27,8 +60,8 @@ export default class TripsUtil {
           "Authorization": CONSTANTS.API_TOKEN,
           "Content-Type": "application/json"
         }
-      }).then((patternsResponse) => {
-        const pattern = patternsResponse.body[0].pattern_id;
+      }).then((patternResponse) => {
+        const pattern = patternResponse.body[0].pattern_id;
 
         cy.request({
           "method": "GET",
@@ -40,25 +73,18 @@ export default class TripsUtil {
         }).then((calendarResponse) => {
           const calendar = calendarResponse.body[0].calendar_id;
 
-          cy.request({
-            "method": "GET",
-            "url": CONSTANTS.API_URL + 'feeds/' + feed + '/patterns/' + pattern + '/calendars/' + calendar,
-            "headers": {
-              "Authorization": CONSTANTS.API_TOKEN,
-              "Content-Type": "application/json"
-            }
-          }).then((tripsResponse) => {
-            const trip = tripsResponse.body[0].trip_id;
-
-            cy.request({
-              "method": "DELETE",
-              "url": CONSTANTS.API_URL + 'feeds/' + feed + '/patterns/' + pattern + '/calendars/' + calendar + '/trips/' + trip,
-              "headers": {
-                "Authorization": CONSTANTS.API_TOKEN,
-                "Content-Type": "application/json"
-              }
+          cy.fixture('/trips/' + tripName)
+            .then((trip) => {
+              cy.request({
+                "method": "POST",
+                "url": CONSTANTS.API_URL + 'feeds/' + feed + '/patterns/' + pattern + '/calendars/' + calendar + '/trips',
+                "headers": {
+                  "Authorization": CONSTANTS.API_TOKEN,
+                  "Content-Type": "application/json"
+                },
+                "body": trip
+              });
             });
-          });
         });
       });
     });

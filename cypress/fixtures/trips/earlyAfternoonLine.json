@@ -1,0 +1,21 @@
+{
+  "bikes_allowed": "yes",
+  "frequencies": [{
+    "start": 37800,
+    "end": 57600,
+    "headway": 1800,
+    "exact_times": true
+  }],
+  "name": "Early Afternoon Line",
+  "times": [{
+    "arrival": 39600,
+    "departure": 40800
+  }, {
+    "arrival": 41100,
+    "departure": 41400
+  }, {
+    "arrival": 42000,
+    "departure": 42600
+  }],
+  "wheelchair_accessible": "yes"
+}

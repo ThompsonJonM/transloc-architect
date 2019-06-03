@@ -41,10 +41,15 @@ export const PATTERNS = {
 }
 
 export const TRIPS = {
-  BIKES_DROPDOWN_SELECTOR: 'select[name=bikes_allowed]',
+  CALENDAR_DROPDOWN_SELECTOR: 'select[name=calendar]',
+  CREATE_FORM_SELECTORS: {
+    BIKES_DROPDOWN_SELECTOR: 'select[name=bikes_allowed]',
+    SAVE_BUTTON_SELECTOR: '[data-id=save-button]',
+    STOP_TIME_SELECTOR: 'input[placeholder="HH:MM"]',
+    TRIP_NAME_SELECTOR: 'input[name=name]',
+    WHEELCHAIR_DROPDOWN_SELECTOR: 'select[name=wheelchair_accessible]'
+  },
+  PATTERN_DROPDOWN_SELECTOR: 'select[name=pattern]',
   NEW_TRIP_SELECTOR: '[data-id=new-button]',
-  SAVE_BUTTON_SELECTOR: '[data-id=save-button]',
-  STOP_TIME_SELECTOR: 'input[placeholder="HH:MM"]',
-  TRIP_NAME_SELECTOR: 'input[name=name]',
-  WHEELCHAIR_DROPDOWN_SELECTOR: 'select[name=wheelchair_accessible]'
+  ROUTE_DROPDOWN_SELECTOR: 'select[name=route]'
 };

@@ -11,7 +11,7 @@ export default class StopsUtil {
    *
    * @param stopFileName - The filename of the stop fixture we are loading
    */
-  static createStopsWithAPI(stopFileName) {
+  static createStopsWithApi(stopFileName) {
     cy.request({
       "method": "GET",
       "url": CONSTANTS.API_URL + 'feeds',
