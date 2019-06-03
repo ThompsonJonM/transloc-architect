@@ -39,7 +39,7 @@ export default class CalendarsUtil {
     });
   }
 
-  static queryCalendarWithApiAndCheckUsage() {
+  static queryCalendarWithApiAndSetAliases() {
     cy.request({
       "method": "GET",
       "url": CONSTANTS.API_URL + 'feeds',
@@ -63,7 +63,12 @@ export default class CalendarsUtil {
         const calendar = calendarResponse.body[0].calendar_id;
 
         cy.get('[data-id=calendar-' + calendar + ']')
-          .should('not.eq', '0 trips')
+          .as('calendar');
+
+        cy.get('[data-id=calendar-' + calendar + '] p')
+          .contains('trip')
+          .invoke('text')
+          .as('usageBefore')
       });
     });
   }
