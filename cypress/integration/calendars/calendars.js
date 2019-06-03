@@ -23,7 +23,7 @@ before(() => {
   cy.get(CONSTANTS.NAVIGATION.FEED_LINK_SELECTOR)
     .contains('Automation')
     .click();
-})
+});
 
 /**
  * Scenario: Calendars Indicate the Number of Trips they are Used By
@@ -31,13 +31,13 @@ before(() => {
 Given('we are viewing the "Trips" tab for a specific feed', () => {
   cy.get(CONSTANTS.FEED.TRIPS_SELECTOR)
     .click();
+
+  cy.url()
+    .should('include', 'trips');
 });
 
 When('we create a trip using an existing calendar', () => {
-  cy.url()
-    .should('include', 'trips');
-
-  TripsUtil.createTrip('Early Morning Trip', 'Yes', 'No');
+  TripsUtil.createTripWithApi('earlyMorningTrip');
 });
 
 And('navigate to the "Calendars" tab', () => {
@@ -47,6 +47,9 @@ And('navigate to the "Calendars" tab', () => {
 
   cy.get(CONSTANTS.FEED.CALENDARS_SELECTOR)
     .click();
+
+  cy.url()
+    .should('include', 'calendars');
 });
 
 Then('the calendar should indicate trip usage', () => {

@@ -1,0 +1,21 @@
+{
+  "bikes_allowed": "no",
+  "frequencies": [{
+    "start": 79200,
+    "end": 86100,
+    "headway": 900,
+    "exact_times": true
+  }],
+  "name": "Midnight Line",
+  "times": [{
+    "arrival": 79200,
+    "departure": 79500
+  }, {
+    "arrival": 80100,
+    "departure": 80400
+  }, {
+    "arrival": 81000,
+    "departure": 81300
+  }],
+  "wheelchair_accessible": "no"
+}

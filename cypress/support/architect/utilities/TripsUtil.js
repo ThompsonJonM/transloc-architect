@@ -17,22 +17,22 @@ export default class TripsUtil {
     cy.get(CONSTANTS.TRIPS.NEW_TRIP_SELECTOR)
       .click();
 
-    cy.get(CONSTANTS.TRIPS.TRIP_NAME_SELECTOR)
+    cy.get(CONSTANTS.TRIPS.CREATE_FORM_SELECTORS.TRIP_NAME_SELECTOR)
       .type(tripName)
 
-    cy.get(CONSTANTS.TRIPS.BIKES_DROPDOWN_SELECTOR)
+    cy.get(CONSTANTS.TRIPS.CREATE_FORM_SELECTORS.BIKES_DROPDOWN_SELECTOR)
       .select(bikesAllowed);
 
-    cy.get(CONSTANTS.TRIPS.WHEELCHAIR_DROPDOWN_SELECTOR)
+    cy.get(CONSTANTS.TRIPS.CREATE_FORM_SELECTORS.WHEELCHAIR_DROPDOWN_SELECTOR)
       .select(wheelchairsAllowed);
 
-    cy.get(CONSTANTS.TRIPS.STOP_TIME_SELECTOR)
+    cy.get(CONSTANTS.TRIPS.CREATE_FORM_SELECTORS.STOP_TIME_SELECTOR)
       .each((selectors) => {
         cy.get(selectors)
           .type('0200')
       });
 
-    cy.get(CONSTANTS.TRIPS.SAVE_BUTTON_SELECTOR)
+    cy.get(CONSTANTS.TRIPS.CREATE_FORM_SELECTORS.SAVE_BUTTON_SELECTOR)
       .click();
   }
 
@@ -85,65 +85,6 @@ export default class TripsUtil {
                 "body": trip
               });
             });
-        });
-      });
-    });
-  }
-
-  /**
-   * A trip deletion function which uses the API
-   * to increase testing speed
-   */
-  static deleteTripWithApi() {
-    cy.request({
-      "method": "GET",
-      "url": CONSTANTS.API_URL + 'feeds',
-      "headers": {
-        "Authorization": CONSTANTS.API_TOKEN,
-        "Content-Type": "application/json"
-      }
-    }).then((feedResponse) => {
-      const feed = feedResponse.body[1].feed_id;
-
-      cy.request({
-        "method": "GET",
-        "url": CONSTANTS.API_URL + 'feeds/' + feed + '/patterns',
-        "headers": {
-          "Authorization": CONSTANTS.API_TOKEN,
-          "Content-Type": "application/json"
-        }
-      }).then((patternsResponse) => {
-        const pattern = patternsResponse.body[0].pattern_id;
-
-        cy.request({
-          "method": "GET",
-          "url": CONSTANTS.API_URL + 'feeds/' + feed + '/calendars',
-          "headers": {
-            "Authorization": CONSTANTS.API_TOKEN,
-            "Content-Type": "application/json"
-          }
-        }).then((calendarResponse) => {
-          const calendar = calendarResponse.body[0].calendar_id;
-
-          cy.request({
-            "method": "GET",
-            "url": CONSTANTS.API_URL + 'feeds/' + feed + '/patterns/' + pattern + '/calendars/' + calendar,
-            "headers": {
-              "Authorization": CONSTANTS.API_TOKEN,
-              "Content-Type": "application/json"
-            }
-          }).then((tripsResponse) => {
-            const trip = tripsResponse.body[0].trip_id;
-
-            cy.request({
-              "method": "DELETE",
-              "url": CONSTANTS.API_URL + 'feeds/' + feed + '/patterns/' + pattern + '/calendars/' + calendar + '/trips/' + trip,
-              "headers": {
-                "Authorization": CONSTANTS.API_TOKEN,
-                "Content-Type": "application/json"
-              }
-            });
-          });
         });
       });
     });
