@@ -5,6 +5,8 @@
     "architectDomain": "https://architect.stage.transloc.com/qainterviewthree/service-periods/",
 
     "username": "qa_user_3",
-    "password": "1KyvQwXydqf73F^Y"
+    "password": "1KyvQwXydqf73F^Y",
+
+    "apiToken": "Token eyJ1c2VybmFtZSI6InFhX3VzZXJfMyIsInNoaWIiOnt9LCJpc19zdXBlciI6ZmFsc2V9.D9L_-A.9u3vpdBoJi28d0_xFLSfa1C0NAo"
   }
 }
