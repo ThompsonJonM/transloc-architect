@@ -1,0 +1,14 @@
+{
+  "start_date": "2019-06-01",
+  "end_date": "2019-06-30",
+  "exceptions": [],
+  "sunday": false,
+  "saturday": false,
+  "friday": true,
+  "thursday": true,
+  "wednesday": true,
+  "tuesday": true,
+  "monday": true,
+  "name": "June Test Calendar",
+  "metadata": {}
+}
