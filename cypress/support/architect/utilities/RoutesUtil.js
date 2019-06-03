@@ -38,4 +38,41 @@ export default class RoutesUtil {
         });
     });
   }
+
+  /**
+  * A route deletion function which uses the API
+  * to increase testing speed
+  */
+  static deleteRouteWithApi() {
+    cy.request({
+      "method": "GET",
+      "url": CONSTANTS.API_URL + 'feeds',
+      "headers": {
+        "Authorization": CONSTANTS.API_TOKEN,
+        "Content-Type": "application/json"
+      }
+    }).then((feedResponse) => {
+      const feed = feedResponse.body[1].feed_id;
+
+      cy.request({
+        "method": "GET",
+        "url": CONSTANTS.API_URL + 'feeds/' + feed + '/routes',
+        "headers": {
+          "Authorization": CONSTANTS.API_TOKEN,
+          "Content-Type": "application/json"
+        }
+      }).then((routesResponse) => {
+        const route = routesResponse.body[0].route_id;
+
+        cy.request({
+          "method": "DELETE",
+          "url": CONSTANTS.API_URL + 'feeds/' + feed + '/routes/' + route,
+          "headers": {
+            "Authorization": CONSTANTS.API_TOKEN,
+            "Content-Type": "application/json"
+          }
+        });
+      });
+    });
+  }
 }
