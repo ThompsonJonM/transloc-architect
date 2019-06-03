@@ -32,7 +32,7 @@ export const MAIN = {
 
 };
 
-NAVIGATION = {
+export const NAVIGATION = {
   FEED_LINK_SELECTOR: 'a'
 }
 
@@ -41,6 +41,10 @@ export const PATTERNS = {
 }
 
 export const TRIPS = {
+  BIKES_DROPDOWN_SELECTOR: 'select[name=bikes_allowed]',
   NEW_TRIP_SELECTOR: '[data-id=new-button]',
-  STOP_TIME_SELECTOR: 'input[placeholder="HH:MM"]'
+  SAVE_BUTTON_SELECTOR: '[data-id=save-button]',
+  STOP_TIME_SELECTOR: 'input[placeholder="HH:MM"]',
+  TRIP_NAME_SELECTOR: 'input[name=name]',
+  WHEELCHAIR_DROPDOWN_SELECTOR: 'select[name=wheelchair_accessible]'
 };

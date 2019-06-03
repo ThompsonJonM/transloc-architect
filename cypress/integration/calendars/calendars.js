@@ -39,8 +39,23 @@ When('we create a trip using an existing calendar', () => {
   cy.get(CONSTANTS.TRIPS.NEW_TRIP_SELECTOR)
     .click();
 
+  cy.get(CONSTANTS.TRIPS.TRIP_NAME_SELECTOR)
+    .type('Early Morning Trip')
+
+  cy.get(CONSTANTS.TRIPS.BIKES_DROPDOWN_SELECTOR)
+    .select('Yes');
+
+  cy.get(CONSTANTS.TRIPS.WHEELCHAIR_DROPDOWN_SELECTOR)
+    .select('No');
+
   cy.get(CONSTANTS.TRIPS.STOP_TIME_SELECTOR)
-  TODO Continue working on filling out time inputs
+    .each((selectors) => {
+      cy.get(selectors)
+        .type('0200')
+    });
+
+  cy.get(CONSTANTS.TRIPS.SAVE_BUTTON_SELECTOR)
+    .click();
 });
 
 And('navigate to the "Calendars" tab', () => {
@@ -48,11 +63,10 @@ And('navigate to the "Calendars" tab', () => {
     .contains('Automation Testing Feed')
     .click();
 
-  cy.get(CONSTANTS.FEED.CALENDARS)
+  cy.get(CONSTANTS.FEED.CALENDARS_SELECTOR)
     .click();
 });
 
 Then('the calendar should indicate trip usage', () => {
-  cy.get(CONSTANTS.CALENDARS.TRIP_USAGE_SELECTOR)
-    .contains('1 trip')
+  CalendarUtil.queryCalendarWithAPIAndCheckUsage();
 })
