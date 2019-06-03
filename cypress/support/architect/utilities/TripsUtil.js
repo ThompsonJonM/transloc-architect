@@ -6,6 +6,37 @@ import * as CONSTANTS from '../constants'
 export default class TripsUtil {
 
   /**
+  * A trip creation function which takes in parameters
+  * to create a new trip
+  *
+  * @param tripName - The name of the trip
+  * @param bikesAllowed - Whether bikes are allowed on the trip
+  * @param wheelchairsAllowed - Whether wheelchairs are allowed on the trip
+  */
+  static createTrip(tripName, bikesAllowed, wheelchairsAllowed) {
+    cy.get(CONSTANTS.TRIPS.NEW_TRIP_SELECTOR)
+      .click();
+
+    cy.get(CONSTANTS.TRIPS.TRIP_NAME_SELECTOR)
+      .type(tripName)
+
+    cy.get(CONSTANTS.TRIPS.BIKES_DROPDOWN_SELECTOR)
+      .select(bikesAllowed);
+
+    cy.get(CONSTANTS.TRIPS.WHEELCHAIR_DROPDOWN_SELECTOR)
+      .select(wheelchairsAllowed);
+
+    cy.get(CONSTANTS.TRIPS.STOP_TIME_SELECTOR)
+      .each((selectors) => {
+        cy.get(selectors)
+          .type('0200')
+      });
+
+    cy.get(CONSTANTS.TRIPS.SAVE_BUTTON_SELECTOR)
+      .click();
+  }
+
+  /**
    * A trips creation function which uses the API
    * to increase testing speed
    *

@@ -38,7 +38,7 @@ export default class FeedsUtil {
         "Authorization": CONSTANTS.API_TOKEN,
         "Content-Type": "application/json"
       }
-    }).then((feedResponse) +> {
+    }).then((feedResponse) => {
       const feed = feedResponse.body[1].feed_id;
 
       cy.request({
@@ -49,6 +49,28 @@ export default class FeedsUtil {
           "Content-Type": "application/json"
         }
       });
+    });
+  }
+
+  /**
+  * A function for querying, then selecting a feed
+  * using the API to increase test speed
+  *
+  * @param feedArrayId - The array location of the feed we would like to select
+  */
+  static selectFeedWithApi(feedArrayId) {
+    cy.request({
+      "method": "GET",
+      "url": CONSTANTS.API_URL + 'feeds',
+      "headers": {
+        "Authorization": CONSTANTS.API_TOKEN,
+        "Content-Type": "application/json"
+      }
+    }).then((response) => {
+      const feed = response.body[feedArrayId].feed_id;
+
+      cy.get('[data-id=feed-' + feed + ']')
+        .click();
     });
   }
 }
