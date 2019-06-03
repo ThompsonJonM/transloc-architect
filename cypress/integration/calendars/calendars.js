@@ -6,7 +6,7 @@ import {
 } from 'cypress-cucumber-preprocessor/steps';
 import * as CONSTANTS from '../../support/architect/constants';
 import LoginUtil from '../../support/architect/utilities/LoginUtil';
-import CalendarsUtil from '../../support/architect/utilities/CalendarUtil'
+import CalendarsUtil from '../../support/architect/utilities/CalendarsUtil'
 
 /**
  * Scenario: Calendars Indicate the Number of Trips they are Used By
