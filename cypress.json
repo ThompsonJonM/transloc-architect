@@ -10,5 +10,9 @@
   "viewportWidth": 1440,
   "viewportHeight": 900,
 
+  "waitForAnimations": true,
+
+  "defaultCommandTimeout": 10000,
+
   "ignoreTestFiles": "*.js"
 }
