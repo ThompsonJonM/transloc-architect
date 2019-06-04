@@ -1,5 +1,6 @@
 // Base URLs
 export const LOGIN_URL = Cypress.env('loginDomain');
+export const LOGOUT_URL = Cypress.env('logoutDomain');
 export const API_URL = Cypress.env('apiDomain');
 export const ARCHITECT_URL = Cypress.env('architectDomain');
 
