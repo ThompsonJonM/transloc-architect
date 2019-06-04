@@ -9,9 +9,9 @@ export default class StopsUtil {
    * A stops creation function which uses the API
    * to increase testing speed
    *
-   * @param stopFileName - The filename of the stop fixture we are loading
+   * @param stopsFileName - The filename of the stops fixture we are loading
    */
-  static createStopsWithApi(stopFileName) {
+  static createStopsWithApi(stopsFileName) {
     cy.request({
       "method": "GET",
       "url": CONSTANTS.API_URL + 'feeds',
@@ -24,7 +24,7 @@ export default class StopsUtil {
 
       const feed = response.body[1].feed_id;
 
-      cy.fixture('/stops/' + stopFileName)
+      cy.fixture('/stops/' + stopsFileName)
         .then((stop) => {
           cy.request({
             "method": 'POST',

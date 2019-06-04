@@ -75,4 +75,41 @@ export default class PatternsUtil {
       });
     });
   }
+
+  /**
+  * A pattern deletion function which uses the API
+  * to increase testing speed
+  */
+  static deletePatternWithApi() {
+    cy.request({
+      "method": "GET",
+      "url": CONSTANTS.API_URL + 'feeds',
+      "headers": {
+        "Authorization": CONSTANTS.API_TOKEN,
+        "Content-Type": "application/json"
+      }
+    }).then((feedResponse) => {
+      const feed = feedResponse.body[1].feed_id;
+
+      cy.request({
+        "method": "GET",
+        "url": CONSTANTS.API_URL + 'feeds/' + feed + '/patterns',
+        "headers": {
+          "Authorization": CONSTANTS.API_TOKEN,
+          "Content-Type": "application/json"
+        }
+      }).then((patternsResponse) => {
+        const pattern = patternsResponse.body[0].pattern_id;
+
+        cy.request({
+          "method": "DELETE",
+          "url": CONSTANTS.API_URL + 'feeds/' + feed + '/patterns/' + pattern,
+          "headers": {
+            "Authorization": CONSTANTS.API_TOKEN,
+            "Content-Type": "application/json"
+          }
+        });
+      });
+    });
+  }
 }

@@ -18,7 +18,9 @@ export const CALENDARS = {
 export const FEED = {
   CALENDARS_SELECTOR: '[data-id=calendars]',
   FEED_NAME_SELECTOR: '[data-id=field-name]',
+  PATTERN_SELECTOR: '[data-id=patterns]',
   ROUTES_SELECTOR: '[data-id=routes]',
+  TESTING_FEED_NAME: 'Automation Testing Feed',
   TRIPS_SELECTOR: '[data-id=trips]',
 };
 
@@ -28,16 +30,22 @@ export const LOGIN = {
   SUBMIT_BUTTON_SELECTOR: 'input[type=submit]'
 };
 
-export const MAIN = {
-
-};
-
 export const NAVIGATION = {
+  BREADCRUMB_PREVIOUS_SELECTOR: '[data-id=breadcrumb_prev]',
   FEED_LINK_SELECTOR: 'a'
-}
+};
 
 export const PATTERNS = {
   NEW_PATTERN_SELECTOR: '[data-id=new-button]'
+};
+
+export const ROUTES = {
+  NEW_ROUTE_SELECTOR: '[data-id=new-route]',
+  NO_ROUTES_MESSAGE: 'There are no routes to display.'
+};
+
+export const SIDEBAR = {
+  SIDEBAR_BODY_SELECTOR: '[data-id=sidebar-body]'
 }
 
 export const TRIPS = {
@@ -49,6 +57,7 @@ export const TRIPS = {
     TRIP_NAME_SELECTOR: 'input[name=name]',
     WHEELCHAIR_DROPDOWN_SELECTOR: 'select[name=wheelchair_accessible]'
   },
+  EXISTING_TRIP_SELECTOR: '.TripItem_name_2P0FM',
   PATTERN_DROPDOWN_SELECTOR: 'select[name=pattern]',
   NEW_TRIP_SELECTOR: '[data-id=new-button]',
   ROUTE_DROPDOWN_SELECTOR: 'select[name=route]'

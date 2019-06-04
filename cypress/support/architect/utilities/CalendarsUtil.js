@@ -39,6 +39,10 @@ export default class CalendarsUtil {
     });
   }
 
+  /**
+   * A calendar query function which uses the API
+   * to increase testing speed
+   */
   static queryCalendarWithApiAndSetAliases() {
     cy.request({
       "method": "GET",
@@ -62,6 +66,10 @@ export default class CalendarsUtil {
       }).then((calendarResponse) => {
         const calendar = calendarResponse.body[0].calendar_id;
 
+        /**
+        * Once queried, set calendar and trip usage as aliases
+        * for further testing via context sharing
+        */
         cy.get('[data-id=calendar-' + calendar + ']')
           .as('calendar');
 

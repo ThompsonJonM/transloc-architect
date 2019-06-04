@@ -5,20 +5,17 @@ import {
   Then
 } from 'cypress-cucumber-preprocessor/steps';
 import * as CONSTANTS from '../../support/architect/constants';
+import TripsUtil from '../../support/architect/utilities/TripsUtil';
 import LoginUtil from '../../support/architect/utilities/LoginUtil';
 import FeedsUtil from '../../support/architect/utilities/FeedsUtil';
-import TripsUtil from '../../support/architect/utilities/TripsUtil';
-
-beforeEach(() => {
-  LoginUtil.loginAsArchitectUser(CONSTANTS.ARCHITECT_USER, CONSTANTS.ARCHITECT_PASSWORD);
-
-  FeedsUtil.selectFeedWithApi(1);
-});
 
 /**
  * Scenario: Create a New Trip
  */
 Given('we are viewing the "Trips" tab for a specific feed', () => {
+  LoginUtil.loginAsArchitectUser(CONSTANTS.ARCHITECT_USER, CONSTANTS.ARCHITECT_PASSWORD);
+  FeedsUtil.selectFeedWithApi(1);
+
   cy.get(CONSTANTS.FEED.TRIPS_SELECTOR)
     .click();
 
@@ -37,23 +34,26 @@ And('we have existing routes, patterns, and calendars', () => {
     cy.get($selector)
       .children()
       .should('have.length', 1)
-  })
+  });
 });
 
-When('we select to create a new trip', () => {
-  TripsUtil.createTrip('midnightLine', 'No', 'No')
+When('we create a new trip', () => {
+  TripsUtil.createTrip('Midnight Line', 'No', 'No')
 });
 
 Then('our trip should be successfully created', () => {
-  cy.get('div')
+  cy.get(CONSTANTS.NAVIGATION.BREADCRUMB_PREVIOUS_SELECTOR)
+    .click();
+
+  cy.get(CONSTANTS.TRIPS.EXISTING_TRIP_SELECTOR)
     .contains('Midnight Line')
-    .should('exist')
-})
-after(() => {
+    .should('be.visible');
+
+  /**
+  * Clean up the environment by deleting the trip created during testing
+  */
   cy.get('div')
     .contains('Midnight Line')
     .find('.SidebarItem_removeIcon_mbZZ-')
     .click();
-
-  cy.wait(50)
 })
