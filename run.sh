@@ -3,7 +3,7 @@
 function run_architect_tests() {
 
   # Remove results from previous runs
-  rm -rf ./output || true
+  rm -rf .cypress/output/ || true
 
   # Pull the latest browsers from the Cypress Browsers Docker image
   docker pull cypress/browsers:latest
@@ -13,12 +13,14 @@ function run_architect_tests() {
   docker stop transloc-architect-tester || true && docker rm transloc-architect-tester || true
 
   # Run the newly created Docker image
-  docker run --icp=host --name transloc-architect-tester transloc-architect
+  docker run --name transloc-architect-tester transloc-architect
 
   # Copy the results for CI/CD use once the test run has finished
-  docker cp transloc-architect-tester:/usr/src/app/cypress/output .
+  docker cp transloc-architect-tester:/usr/src/app/cypress/output ./cypress
 
   # Remove the container following test complete
   docker rm transloc-architect-tester
 
 }
+
+run_architect_tests
