@@ -4,6 +4,12 @@ import FeedsUtil from '../../support/architect/utilities/FeedsUtil';
 import PatternsUtil from '../../support/architect/utilities/PatternsUtil';
 import RoutesUtil from '../../support/architect/utilities/RoutesUtil';
 
+/**
+* Login to the Architect application and select the feed created
+* during environment setup
+*
+* Prepare the test environment by deleting existing patterns and routes
+*/
 beforeEach(() => {
   LoginUtil.loginAsArchitectUser(CONSTANTS.ARCHITECT_USER, CONSTANTS.ARCHITECT_PASSWORD);
   FeedsUtil.selectFeedWithApi(1);
