@@ -32,6 +32,7 @@ export default class EnvironmentUtil {
     })
 
     CalendarsUtil.createCalendarWithApi(calendarFileName);
+    cy.log(calendarFileName + ' calendar created.')
 
     RoutesUtil.createRouteWithApi(routeFileName);
     cy.log(routeFileName + ' route created.');
