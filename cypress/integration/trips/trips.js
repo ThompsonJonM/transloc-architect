@@ -6,11 +6,16 @@ import {
 } from 'cypress-cucumber-preprocessor/steps';
 import * as CONSTANTS from '../../support/architect/constants';
 import TripsUtil from '../../support/architect/utilities/TripsUtil';
+import LoginUtil from '../../support/architect/utilities/LoginUtil';
+import FeedsUtil from '../../support/architect/utilities/FeedsUtil';
 
 /**
  * Scenario: Create a New Trip
  */
 Given('we are viewing the "Trips" tab for a specific feed', () => {
+  LoginUtil.loginAsArchitectUser(CONSTANTS.ARCHITECT_USER, CONSTANTS.ARCHITECT_PASSWORD);
+  FeedsUtil.selectFeedWithApi(1);
+
   cy.get(CONSTANTS.FEED.TRIPS_SELECTOR)
     .click();
 
@@ -40,15 +45,13 @@ Then('our trip should be successfully created', () => {
   cy.get(CONSTANTS.NAVIGATION.BREADCRUMB_PREVIOUS_SELECTOR)
     .click();
 
-  cy.get('div')
+  cy.get(CONSTANTS.TRIPS.EXISTING_TRIP_SELECTOR)
     .contains('Midnight Line')
-    .should('exist');
-});
+    .should('be.visible');
 
-/**
-* Clean up the environment by deleting the trip created during testing
-*/
-after(() => {
+  /**
+  * Clean up the environment by deleting the trip created during testing
+  */
   cy.get('div')
     .contains('Midnight Line')
     .find('.SidebarItem_removeIcon_mbZZ-')

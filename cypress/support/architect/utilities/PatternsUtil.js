@@ -108,7 +108,7 @@ export default class PatternsUtil {
             "Authorization": CONSTANTS.API_TOKEN,
             "Content-Type": "application/json"
           }
-        })
+        });
       });
     });
   }
