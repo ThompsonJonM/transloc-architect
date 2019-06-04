@@ -9,7 +9,7 @@ const cucumber = require('cypress-cucumber-preprocessor').default;
 * @param {*}                    The JSON of the environment file
 */
 const getEnvironmentByFile = (environmentFile) => {
-  const pathToEnvFile = path.resolve(__dirname, '..', 'config', `${environmentFile}.json`)
+  const pathToEnvFile = path.resolve(__dirname, '..', 'config', `${environmentFile}.json`);
 
   return fs.readJson(pathToEnvFile)
 }
@@ -19,7 +19,7 @@ const getEnvironmentByFile = (environmentFile) => {
 // `on` is used to hook into various events Cypress emits
 // `config` is the resolved Cypress config
 module.exports = (on, config) => {
-  on('file:preprocessor', cucumber())
+  on('file:preprocessor', cucumber());
 
   const file = config.env.environment || 'local';
   console.log(`Using environment: ${file}`);
