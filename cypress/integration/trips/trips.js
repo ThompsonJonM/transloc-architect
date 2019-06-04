@@ -6,16 +6,11 @@ import {
 } from 'cypress-cucumber-preprocessor/steps';
 import * as CONSTANTS from '../../support/architect/constants';
 import TripsUtil from '../../support/architect/utilities/TripsUtil';
-import LoginUtil from '../../support/architect/utilities/LoginUtil';
-import FeedsUtil from '../../support/architect/utilities/FeedsUtil';
 
 /**
  * Scenario: Create a New Trip
  */
 Given('we are viewing the "Trips" tab for a specific feed', () => {
-  LoginUtil.loginAsArchitectUser(CONSTANTS.ARCHITECT_USER, CONSTANTS.ARCHITECT_PASSWORD);
-  FeedsUtil.selectFeedWithApi(1);
-
   cy.get(CONSTANTS.FEED.TRIPS_SELECTOR)
     .click();
 

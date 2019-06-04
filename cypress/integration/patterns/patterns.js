@@ -6,9 +6,6 @@ import {
 } from 'cypress-cucumber-preprocessor/steps';
 import * as CONSTANTS from '../../support/architect/constants';
 import RoutesUtil from '../../support/architect/utilities/RoutesUtil';
-import PatternsUtil from '../../support/architect/utilities/PatternsUtil';
-import LoginUtil from '../../support/architect/utilities/LoginUtil';
-import FeedsUtil from '../../support/architect/utilities/FeedsUtil';
 
 /**
  * Scenario: Pattern Creation Requires Existing Routes
@@ -17,12 +14,6 @@ import FeedsUtil from '../../support/architect/utilities/FeedsUtil';
  * @param should_or_should_not        The type of assertion we are passing
  */
 Given('we are viewing a specific feed', () => {
-  LoginUtil.loginAsArchitectUser(CONSTANTS.ARCHITECT_USER, CONSTANTS.ARCHITECT_PASSWORD);
-  FeedsUtil.selectFeedWithApi(1);
-
-  PatternsUtil.deletePatternWithApi();
-  RoutesUtil.deleteRouteWithApi();
-
   cy.get(CONSTANTS.FEED.FEED_NAME_SELECTOR)
     .should('have.value', CONSTANTS.FEED.TESTING_FEED_NAME)
 });
@@ -77,7 +68,4 @@ Then('we {string} be able to create a new pattern', (should_or_should_not) => {
   } else {
     throw new Error('Invalid example entry. This test requires "should" or "should not".')
   }
-
-  RoutesUtil.createRouteWithApi('irvingPark');
-  PatternsUtil.createPatternWithApi();
 })

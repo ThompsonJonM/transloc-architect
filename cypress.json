@@ -10,9 +10,9 @@
   "viewportWidth": 1440,
   "viewportHeight": 900,
 
+  "baseUrl": "https://architect.stage.transloc.com/qainterviewthree/service-periods",
   "waitForAnimations": true,
-
   "defaultCommandTimeout": 10000,
-
+  "watchForFileChanges": false,
   "ignoreTestFiles": "*.js"
 }

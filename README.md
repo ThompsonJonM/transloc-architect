@@ -44,11 +44,11 @@ Use this command to open the Cypress.io test runner UI. From here, users may sel
 
 A test readout will be featured in the left rail of the test runner UI.
 
-##### Known Issues with Test Runner UI
+#### Known Issues with Test Runner UI
 
 When selecting 'Run all specs' with the test runner UI, hooks will fire consecutively instead of once per run/test. For example, we have a global before hook which logs 'Spinning Up!'
 
-This event will occur three times (since we have three features) in consecutive order before the first test instead of one time for the entire test run.
+This event will occur three times (since we have three features) in consecutive order before the first test instead of one time for the entire test run. Since this repository uses global hooks, it is advisable to abstain from batch running tests using the test runner UI until Cypress is able to push a fix for the issue. Instead, batch runs may be performed with any of the other methods detailed in this README.
 
 This issue has been [documented](https://github.com/cypress-io/cypress/issues/3323) and is currently pending solution. It is a known bug with Cypress.io test runner UI.
 

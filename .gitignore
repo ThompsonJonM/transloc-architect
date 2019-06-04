@@ -65,3 +65,6 @@ cypress/config/*.json
 
 # Environment Postman Collection
 cypress/references/postmanCollection/*.postman_collection
+
+# Test Results
+cypress/output
