@@ -7,15 +7,16 @@ import {
 import * as CONSTANTS from '../../support/architect/constants';
 import CalendarsUtil from '../../support/architect/utilities/CalendarsUtil';
 import TripsUtil from '../../support/architect/utilities/TripsUtil';
+import LoginUtil from '../../support/architect/utilities/LoginUtil';
+import FeedsUtil from '../../support/architect/utilities/FeedsUtil';
 
 /**
-* Functions which assist in setting up the environment
-* for calendars testing
-*
-* Specifically visits the calendars page, then aliases
-* the number of trips recorded before tests run for comparison
-*/
-before(() => {
+ * Scenario: Calendars Indicate the Number of Trips they are Used By
+ */
+Given('we are viewing the "Trips" tab for a specific feed', () => {
+  LoginUtil.loginAsArchitectUser(CONSTANTS.ARCHITECT_USER, CONSTANTS.ARCHITECT_PASSWORD);
+  FeedsUtil.selectFeedWithApi(1);
+  
   cy.get(CONSTANTS.FEED.CALENDARS_SELECTOR)
     .click();
 
@@ -24,12 +25,7 @@ before(() => {
   cy.get(CONSTANTS.NAVIGATION.FEED_LINK_SELECTOR)
     .contains('Automation')
     .click();
-});
 
-/**
- * Scenario: Calendars Indicate the Number of Trips they are Used By
- */
-Given('we are viewing the "Trips" tab for a specific feed', () => {
   cy.get(CONSTANTS.FEED.TRIPS_SELECTOR)
     .click();
 
@@ -38,7 +34,7 @@ Given('we are viewing the "Trips" tab for a specific feed', () => {
 });
 
 When('we create a trip using an existing calendar', () => {
-  TripsUtil.createTripWithApi('earlyMorningTrip');
+  TripsUtil.createTripWithApi('earlyMorningLine');
 });
 
 And('navigate to the "Calendars" tab', () => {
