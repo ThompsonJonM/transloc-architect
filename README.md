@@ -6,6 +6,9 @@ Cypress is a robust and lightweight automation tool which allows a developer or 
 
 Cypress' current limitation is its lack of cross-browser support. It is currently slated for a SauceLabs integration by the end of 2019.
 
+### Project Blueprinting
+Blueprint and initial test scenarios may be found [here](blueprintingSketch.md).
+
 ### Installation
 Clone this repository, then enter the following command:
 
